@@ -22,7 +22,16 @@
 
 package com.raywenderlich.markme.splash.view.ui
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
+import com.raywenderlich.markme.main.view.ui.MainActivity
 
 class SplashActivity : AppCompatActivity() {
+
+    override fun onResume() {
+        super.onResume()
+
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
 }

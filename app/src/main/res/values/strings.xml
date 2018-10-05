@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mark me!</string>
+    <string name="content_description_attendance">Attendance</string>
+    <string name="content_description_grading">Grading</string>
 </resources>
