@@ -8,6 +8,7 @@
 /.idea/misc.xml
 /.idea/vcs.xml
 /.idea/sonarlint
+/.idea/assetWizardSettings.xml
 .DS_Store
 /build
 /captures

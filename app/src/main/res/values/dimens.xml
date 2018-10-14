@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fully_stretchable">0dp</dimen>
+    <dimen name="cardview_corner_radius">5dp</dimen>
+    <dimen name="standard">8dp</dimen>
+    <dimen name="xlarge">32dp</dimen>
+    <dimen name="image_default_margin">5dp</dimen>
+    <dimen name="image_default_padding">5dp</dimen>
+</resources>
