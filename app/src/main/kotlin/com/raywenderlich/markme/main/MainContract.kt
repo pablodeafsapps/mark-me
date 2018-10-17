@@ -26,7 +26,6 @@ import com.raywenderlich.markme.utils.ClassSection
 
 interface MainContract {
     interface View {
-        fun finishView()
         fun navigateTo(section: ClassSection)
     }
 

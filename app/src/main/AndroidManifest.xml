@@ -19,6 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.view.ui.MainActivity" />
+        <activity android:name=".feature.view.ui.FeatureActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".main.view.ui.MainActivity" />
+        </activity>
 
     </application>
 </manifest>

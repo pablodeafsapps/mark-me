@@ -1,5 +1,11 @@
 package com.raywenderlich.markme.utils
 
-enum class ClassSection {
-    ATTENDANCE, GRADING
+import android.os.Parcelable
+import com.raywenderlich.markme.R
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+enum class ClassSection(val sectionName: String, val color: Int) : Parcelable {
+    ATTENDANCE("Attendance", R.color.attendanceColor),
+    GRADING("Grading", R.color.gradingColor)
 }
