@@ -1,3 +1,25 @@
+/*
+ * Copyright (c) 2018 Razeware LLC
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 package com.raywenderlich.markme.feature.view.adapter
 
 import android.support.v7.widget.RecyclerView
@@ -9,7 +31,7 @@ import com.raywenderlich.markme.R
 import com.raywenderlich.markme.model.Student
 import kotlinx.android.synthetic.main.card_feature_grading.view.*
 
-class FeatureGradingAdapter(val dataList: List<Student>?, private var listener: (Student?) -> Unit)
+class FeatureGradingAdapter(val dataList: List<Student>?)
     : RecyclerView.Adapter<FeatureGradingAdapter.ViewHolder>(), RwAdapter<Student> {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,11 +48,25 @@ class FeatureGradingAdapter(val dataList: List<Student>?, private var listener: 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.labelName?.text = dataList?.let { it[position].name }
-        holder.etGrade?.text = dataList?.let { it[position].grade.toString() }
-        holder.itemView.setOnClickListener {
-            listener(dataList?.get(position))
+        holder.etGrade?.apply {
+            dataList?.let { list ->
+                val value = list[position].grade
+                text = if (value != -1) value.toString() else ""
+            }
+            setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    dataList?.get(position)?.grade = text.toString().toInt()
+                }
+            }
         }
     }
 
     override fun getData(): List<Student>? = dataList
+
+    override fun updateData(data: List<Student>) {
+        data.forEachIndexed { index, student ->
+            dataList?.first { student.name == it.name }?.grade = student.grade
+            notifyItemChanged(index)
+        }
+    }
 }
