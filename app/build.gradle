@@ -44,6 +44,9 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:$room_version"
     // 3rd party libraries
     implementation "com.jakewharton.timber:timber:$timber_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
     // Test
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "com.android.support.test:runner:1.0.2"
