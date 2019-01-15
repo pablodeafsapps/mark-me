@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Razeware LLC
+ * Copyright (c) 2019 Razeware LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -47,7 +47,6 @@ import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 import android.app.Activity
 import android.view.inputmethod.InputMethodManager
-
 
 class FeatureActivity : AppCompatActivity(), FeatureContract.View<Student> {
 

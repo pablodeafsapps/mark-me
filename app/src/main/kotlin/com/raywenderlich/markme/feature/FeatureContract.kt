@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Razeware LLC
+ * Copyright (c) 2019 Razeware LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,6 @@
 
 package com.raywenderlich.markme.feature
 
-import com.raywenderlich.markme.model.Student
 import com.raywenderlich.markme.utils.ClassSection
 
 interface FeatureContract {
@@ -36,6 +35,7 @@ interface FeatureContract {
         fun loadPersistedData(data: List<T>, featureType: ClassSection)
         // User Actions
         fun onSave2PrefsClick(data: List<T>?)
+
         fun onSave2DbClick(data: List<T>?)
     }
 
@@ -43,6 +43,6 @@ interface FeatureContract {
         fun add2Db(data: List<T>, callback: (String) -> Unit)
         fun add2Prefs(data: List<T>, callback: (String) -> Unit)
         fun fetchFromDb(data: List<T>, callback: (List<T>) -> Unit)
-        fun fetchFromPrefs(data: List<T>) : List<T>
+        fun fetchFromPrefs(data: List<T>): List<T>
     }
 }
