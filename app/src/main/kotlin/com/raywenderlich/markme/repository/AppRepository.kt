@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Razeware LLC
+ * Copyright (c) 2019 Razeware LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,6 +32,7 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
+import timber.log.Timber
 
 private const val MSG_DATA_SAVED_TO_DB = "Data saved to DB"
 private const val MSG_DATA_SAVED_TO_PREFS = "Data saved to prefs"

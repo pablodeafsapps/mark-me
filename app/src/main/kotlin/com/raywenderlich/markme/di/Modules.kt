@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Razeware LLC
+ * Copyright (c) 2019 Razeware LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,7 +41,7 @@ val applicationModule = module(override = true) {
     factory<SplashContract.Presenter> { (view: SplashContract.View) -> SplashPresenter(view) }
     factory<MainContract.Presenter> { (view: MainContract.View) -> MainPresenter(view) }
     factory<FeatureContract.Presenter<Student>> { (view: FeatureContract.View<Student>) -> FeaturePresenter(view) }
-    single { AppRepository }
+    single<FeatureContract.Model<Student>> { AppRepository }
     single<SharedPreferences> { androidContext().getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE) }
     single {
         Room.databaseBuilder(androidContext(),

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Razeware LLC
+ * Copyright (c) 2019 Razeware LLC
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,6 @@ package com.raywenderlich.markme.feature.presenter
 
 import com.raywenderlich.markme.feature.FeatureContract
 import com.raywenderlich.markme.model.Student
-import com.raywenderlich.markme.repository.AppRepository
 import com.raywenderlich.markme.utils.ClassSection
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
@@ -32,7 +31,7 @@ import org.koin.standalone.inject
 class FeaturePresenter(private var view: FeatureContract.View<Student>?)
     : FeatureContract.Presenter<Student>, KoinComponent {
 
-    private val repository: AppRepository by inject()
+    private val repository: FeatureContract.Model<Student> by inject()
 
     override fun onSave2PrefsClick(data: List<Student>?) {
         data?.let {
