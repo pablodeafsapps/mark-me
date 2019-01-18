@@ -2,6 +2,7 @@ package com.raywenderlich.markme
 
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import com.nhaarman.mockito_kotlin.eq
+import com.nhaarman.mockito_kotlin.mock
 import com.raywenderlich.markme.di.applicationModule
 import com.raywenderlich.markme.feature.FeatureContract
 import com.raywenderlich.markme.model.Student
@@ -18,14 +19,13 @@ import org.mockito.Mockito
 
 class FeaturePresenterTest : KoinTest {
 
-    private val view: FeatureContract.View<Student> by inject()
+    private val view: FeatureContract.View<Student> = mock()
     private val repository: FeatureContract.Model<Student> by inject()
     private val presenter: FeatureContract.Presenter<Student> by inject { parametersOf(view) }
 
     @Before
     fun before() {
         startKoin(listOf(applicationModule))
-        declareMock<FeatureContract.View<Student>>()
         declareMock<FeatureContract.Model<Student>>()
     }
 
